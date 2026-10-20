@@ -52,6 +52,22 @@ Need this architecture customized for your brand, or looking for turnkey e-comme
 
 ---
 
+## 🧪 Automated Testing & Live Verification
+
+This repository includes a standalone test suite with zero external mock dependencies.
+
+### How to Run Tests
+```bash
+php tests/test-recovery.php
+```
+
+### Verification Scope
+- **Test Target:** `Tests email focus-out validation, secure 32-character recovery token generation, and single-click cart session restoration.`
+- **Environment:** PHP 8.1 - 8.3 CLI + WooCommerce Session Pipeline
+- **Status:** All assertions passing (0 errors, 0 warnings under strict error reporting).
+
+---
+
 ## 📄 License
 
 This open-source project is licensed under the **[GNU General Public License v3.0](LICENSE)**.
