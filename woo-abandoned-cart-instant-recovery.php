@@ -15,26 +15,11 @@
 defined('ABSPATH') || exit;
 
 add_action('before_woocommerce_init', function () {
-    if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
-        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
+    if (class_exists(AutomatticWooCommerceUtilitiesFeaturesUtil::class)) {
+        AutomatticWooCommerceUtilitiesFeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
     }
 });
 
-final class WooAbandonedCartInstantRecovery {
-    const VERSION = '1.0.0';
-    private static ?self \$instance = null;
+require_once __DIR__ . '/includes/class-recovery-engine.php';
 
-    public static function instance(): self {
-        return self::\$instance ??= new self();
-    }
-
-    private function __construct() {
-        add_action('init', [\$this, 'init_engine']);
-    }
-
-    public function init_engine(): void {
-        // Core lifecycle hooks for woo-abandoned-cart-instant-recovery
-    }
-}
-
-add_action('plugins_loaded', ['WooAbandonedCartInstantRecovery', 'instance']);
+add_action('plugins_loaded', ['Woo_Abandoned_Cart_Recovery', 'instance']);
