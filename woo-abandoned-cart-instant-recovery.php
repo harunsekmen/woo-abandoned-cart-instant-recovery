@@ -23,3 +23,5 @@ add_action('before_woocommerce_init', function () {
 require_once __DIR__ . '/includes/class-recovery-engine.php';
 
 add_action('plugins_loaded', ['Woo_Abandoned_Cart_Recovery', 'instance']);
+
+require_once __DIR__ . '/includes/class-admin.php';
